@@ -20,6 +20,8 @@ WORKDIR /var/www/html
 
 # Copy the application files to the container
 COPY ./html/ /var/www/html/
+COPY ./css/ /var/www/html/css/
+COPY ./fonts/ /var/www/html/fonts/
 
 # Expose port 80
 EXPOSE 80
