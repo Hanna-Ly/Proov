@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Firmade otsing</title>
+</head>
+<body>
+    <!--HEADER, ET VALIDA ERINEVAID LEHTI-->
+    <div class="container-fluid bg-lightblue">
+        <header class="d-flex justify-content-between py-3"> 
+            <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 text-dark text-decoration-none">
+              <svg class="bi me-2" width="40" height="32"><use xlink:href="https://demi.ee/assets/img/favicon.png"></use></svg>
+              <span class="fs-4">Demi</span>
+            </a>
+      
+            <ul class="nav nav-pills">
+              <li class="nav-item"><a href="rooms.html" class="nav-link text-dark fw-bold">FIRMAD</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-dark fw-bold">INFO</a></li>
+            </ul>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="login.html" class="nav-link text-dark">Logi sisse</a></li>
+                <li class="nav-item"><a href="registration.html" class="nav-link text-dark ">Registreeri</a></li>
+            </ul>
+             
+        </header>
+    </div>
+
+    <!--FILTREERIMINE-->
+    <div class="container-xl">
+        <div class="row">
+            <div class="ps-3 mb-4">
+            <small><a href="index.html" class="text-dark no_underline">Esileht</a> > <a href="rooms.html" class="text-dark">Ruumid</a></small>
+            <div class="row">
+            <!--ICONS-->
+            <div class="d-flex justify-content-between dark-blue dark-blue-border pt-3">
+                <h5 class="text-start">Kõik ruumid</h5>
+                <div class="d-flex">
+                    <div class="text-end mb-2 px-2" id="gridViewBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
+                        </svg>
+                    </div>
+                    <div class="text-end mb-2 px-2" id="listViewBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-list-task"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z" />
+                            <path
+                                d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z" />
+                            <path fill-rule="evenodd"
+                                d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+            <!--ICONS-->
+            <div id="filter"></div>
+            <div class="col-12 col-lg-3 sticky">
+                <div class="bg-beige rounded border p-2 mb-3">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col filter-btn button">
+                                <p class="text-secondary fs-6 d-inline"><i class="fa-solid fa-sliders fs-3 text-secondary"></i></p>
+                                <h6 class="text-secondary text-start mt-1 ms-2 d-inline"> Filtreeri</h6>
+                            </div>
+                            <div class="col">
+                                <h6 class="text-secondary text-end mt-1">Tühista</h6>
+                            </div>
+                        </div>
+                    </div>
+                        <form class="p-3 mb-0 bg-beige form ">
+                            
+                             <div class="form-group">
+                                <label for="formGroupExampleInput" class="form-label">Kuupäev</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput">
+                            </div>
+                            <div class="row">
+                                </div>
+                                <div class="">
+                                    <label for="formGroupExampleInput" class="form-label">Piirkond</label>
+                                    <select class="form-select" aria-label="Default select example"></select>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <h6>TUNNIMAKSUMUS</h6>
+                                    <div class="col-6 my-3">
+                                    <label for="formGroupExampleInput" class="form-label">Alates</label>
+                                    <input type="text" class="form-control" naria-label="First name">
+                                    </div>
+                                    <div class="col-6 my-3">
+                                    <label for="formGroupExampleInput" class="form-label">Kuni</label>
+                                    <input type="text" class="form-control" aria-label="Last name">
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill border border-dark text-dark bg-opacity-10 fs-6">Filtreeri</span>
+                        </form>
+                        
+                 </div>
+                 
+            </div>
+
+     
+            
+            <!--CARDS-->
+        <div class="col-12 col-lg-9">
+            
+            <div id="grid-view" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 p-4 test7">
+                <div class="col px-2 mt-4 test2">
+                    <div class="card shadow-sm h-100 bg-lightblue test4">
+                        <div class="col-md-12 test3">
+                            <a href="specificroom.html">
+                                <img src="https://picsum.photos/1200/900?random10" class="card-img-top">
+                            </a>
+                            </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-secondary">Lumelükkamis firma</h5>
+                            <p class="card-text fw-bold">al 30€/tund</p>
+                            <p class="card-text"><i class="fa-solid fa-location-dot"></i> Raudteeülesõidukoha puiestee 2, Pärnu</p>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col px-2 mt-4 test2">
+                        <div class="card shadow-sm h-100 bg-lightblue test4">
+                            <div class="col-md-12 test3">
+                                <img src="https://picsum.photos/1200/900?random18" class="card-img-top">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-secondary">Lumelükkamis firma</h5>
+                                <p class="card-text fw-bold">al 30€/tund</p>
+                                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Raudteeülesõidukoha puiestee 2, Pärnu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col px-2 mt-4 test2">
+                        <div class="card shadow-sm h-100 bg-lightblue test4">
+                            <div class="col-md-12 test3">
+                                <img src="https://picsum.photos/1200/900?random24" class="card-img-top">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-secondary">Lumelükkamis firma</h5>
+                                <p class="card-text fw-bold">al 30€/tund</p>
+                                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Raudteeülesõidukoha puiestee 2, Pärnu</p>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="col px-2 mt-4 test2">
+                        <div class="card shadow-sm h-100 bg-lightblue test4">
+                            <div class="col-md-12 test3">
+                                <img src="https://picsum.photos/1200/900?random23" class="card-img-top">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-secondary">Lumelükkamis firma</h5>
+                                <p class="card-text fw-bold">al 30€/tund</p>
+                                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Raudteeülesõidukoha puiestee 2, Pärnu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col px-2 mt-4 test2">
+                        <div class="card shadow-sm h-100 bg-lightblue test4">
+                            <div class="col-md-12 test3">
+                                <img src="https://picsum.photos/1200/900?random25" class="card-img-top">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-secondary">Lumelükkamis firma</h5>
+                                <p class="card-text fw-bold">al 30€/tund</p>
+                                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Raudteeülesõidukoha puiestee 2, Pärnu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col px-2 mt-4 test2">
+                        <div class="card shadow-sm h-100 bg-lightblue test4">
+                            <div class="col-md-12 test3">
+                                <img src="https://picsum.photos/1200/900?random19" class="card-img-top">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-secondary">Lumelükkamis firma</h5>
+                                <p class="card-text fw-bold">al 30€/tund</p>
+                                <p class="card-text"><i class="fa-solid fa-location-dot"></i> Raudteeülesõidukoha puiestee 2, Pärnu</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+
+                <!--<div class="btn-toolbar mb-3 mt-3 float-end" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group me-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-outline-secondary fw-bold border border-0 text-dark">⋅</button>
+                        <button type="button" class="btn btn-outline-secondary fw-bold border border-0 text-dark">1</button>
+                        <button type="button" class="btn btn-outline-secondary fw-bold border border-0 text-dark">2</button>
+                        <button type="button" class="btn btn-outline-secondary fw-bold border border-0 text-dark">3</button>
+                        <button type="button" class="btn btn-outline-secondary fw-bold border border-0 text-dark">⋅</button>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    </div>
+     <!--FOOTER-->
+    <div class="pb-1 bg-lightblue">
+        <div class="container text-center text-dark">
+            <footer class="py-5 my-3 mt-5">
+                <div class="row align-items-center">
+                    <div class="col">
+                        Blizard<br>
+                        Talve tee 23<br>
+                    </div>
+                    <div class="col">
+                        Võta ühendust:<br>
+                        blizard@blizard.ee
+                    </div>
+                    <div class="mt-5">
+                    <p class="dark-border"></p>
+                    </div>
+            </footer>
+        </div>
+    </div>            
+</body>
+
+<script>
+    let currentView = "grid";
+
+    $(document).ready(function() {
+      // Add click event listener to list view button
+      $("#listViewBtn").click(function() {
+        if (currentView === "grid") {
+        $('.test2').each(function() {
+            // Remove grid view classes
+            $(this).find(".test7").removeClass("row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 p-4");
+            $(this).removeClass("col px-2 mt-4");
+            $(this).find(".test4").removeClass("shadow-sm h-100 bg-lightblue");
+            $(this).find(".test3").removeClass("col-md-12");
+    
+            // Add list view classes
+            $(this).find(".test7").addClass("row row-cols-1 row-cols-md-3 pb-5 mt-4");
+            $(this).addClass("col-12 col-lg-12");
+            $(this).find(".test4").addClass("mb-3 bg-lightblue");
+            $(this).find(".test3").addClass("col-md-4");
+            $(this).find(".test4").append('<div class="row test5"></div>');
+           $(this).find(".test5").append(($(this).find(".test3")).clone());
+            $(this).find(".test5").append('<div class="col-12 col-lg-7 test6"></div>');
+            $(this).find(".test6").append(($(this).find(".card-body")).clone());
+            var foo = $(this).find('.test3') // returns an array of matched elements
+            foo[0].remove(); // removes the second one
+            var foo = $(this).find('.card-body')// returns an array of matched elements
+            foo[0].remove(); // removes the second one
+          });
+          currentView = "list";
+        }
+      });
+    
+      // Add click event listener to grid view button
+      $("#gridViewBtn").click(function() {
+        if (currentView === "list") {
+          $('.test2').each(function() {
+              // Remove list view classes
+              $(this).find(".test7").removeClass("row row-cols-1 row-cols-md-3 pb-5 mt-4");
+              $(this).removeClass("col-12 col-lg-12");
+              $(this).find(".test4").removeClass("mb-3 bg-lightblue");
+              $(this).find(".test3").removeClass("col-md-4");
+      
+              // Add grid view classes
+              $(this).find(".test7").addClass("row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 p-4");
+              $(this).addClass("col px-2 mt-4");
+              $(this).find(".test4").addClass("shadow-sm h-100 bg-lightblue");
+              $(this).find(".test3").addClass("col-md-12");
+              $(this).find(".test3").clone().appendTo($(this).find(".test4"));
+            $(this).find(".card-body").clone().appendTo($(this).find(".test4"));
+              var foo = $(this).find('.test5') // returns an array of matched elements
+            foo[0].remove(); // removes the second one
+          });
+          currentView = "grid";
+        }
+        });
+      });
+
+      $(window).resize(function() {
+        var viewportWidth = $(window).width();
+        if (viewportWidth > 992) {
+          $('.form').show();
+        } 
+      });
+
+    
+    $('.button').click(function() {
+        $('.form').toggle();
+      });
+
+      const filterBtn = document.querySelector('.button');
+      const filterForm = document.querySelector('.form');
+      
+      filterBtn.addEventListener('click', function() {
+        if (filterForm.style.display === 'none') {
+          filterForm.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        } else {
+          filterForm.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    
+    
+
+      
+
+
+
+</script>

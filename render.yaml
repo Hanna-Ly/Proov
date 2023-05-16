@@ -1,0 +1,11 @@
+setup:
+  - apt-get update
+  - apt-get install -y mysql-client
+
+services:
+  - name: Blizard
+    dockerfile: Dockerfile
+    env:
+      - TZ=Europe/Helsinki
+    port: 8080
+    start_command: npm start
